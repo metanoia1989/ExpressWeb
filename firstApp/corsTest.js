@@ -62,9 +62,6 @@ const port = 3000;
  * configuring CORS Asyncchronously
  */
 
-app.listen(port, () => {
-    console.log(`Started on prot ${port}`);
-});
 
 const whitelist = ['https://www.baidu.com', 'http://expressjs.com'];
 const corsOptionsDelegate = (req, callback) => {
@@ -81,4 +78,8 @@ app.get('/products/:id', cors(corsOptionsDelegate), (req, res, next) => {
     res.json({
         msg: 'This is CORS-enabled for a whitelisted domain.'
     });
+});
+
+app.listen(port, () => {
+    console.log(`Started on prot ${port}`);
 });

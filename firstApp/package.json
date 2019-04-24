@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --exec node -r esm corsTest.js"
+    "uploadTest": "nodemon --exec node -r esm fileUpload.js",
+    "csrfTest": "nodemon --exec node -r esm csrfProtection.js",
+    "pugTest": "nodemon --exec node -r esm pugTest.js",
+    "routeTest": "nodemon --exec node -r esm routeTest.js"
   },
   "dependencies": {
     "cookie-parser": "^1.4.4",
@@ -16,5 +19,8 @@
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.1",
     "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
   }
 }

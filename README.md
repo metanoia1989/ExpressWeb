@@ -25,3 +25,13 @@ Node, React, TypeScript, MongoDB 这些。
 # 有用的技术文章
 - [How to enable ES6 (and beyond) syntax with Node and Express](https://medium.freecodecamp.org/how-to-enable-es6-and-beyond-syntax-with-node-and-express-68d3e11fe1ab) 使用ES6语法来开发 express
 
+## Route 讲解路由
+- [Express Tutorial Part 4: Routes and controllers](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes) express 路由，官方文档太浅了，火狐文档这里讲解如何抽离控制器，很棒
+- [Express Router Tutorial Example From Scratch](https://appdividend.com/2018/09/15/express-router-tutorial-example-from-scratch/) 非常简单的路由知识
+
+## Real time video streaming
+- [Video stream with Node.js and HTML5](https://medium.com/@daspinola/video-stream-with-node-js-and-html5-320b3191a6b6)
+- [Video stream with Node.js & Socket.io | Stream data in Node.js using Socket.io](http://www.coding4developers.com/node-js/video-stream-with-node-js-socket-io-stream-data-in-node-js-using-socket-io/)
+
+## Message Chat 
+- [Building a Node.js WebSocket Chat App with Socket.io and React](https://itnext.io/building-a-node-js-websocket-chat-app-with-socket-io-and-react-473a0686d1e1)
