@@ -1,0 +1,76 @@
+doctype html
+title Mixins 复用代码块
+
+h1 Mixins 创建可复用的代码块
+p 跟 sass 中的 mixins 很像，差不多的概念
+
+mixin list
+    ul
+        li 第一项
+        li 第二项
+        li 第三项
+//- 调用 mixins
++list
++list
+
+p mixin被编译成函数，并且可以接受参数
+mixin pet(name)
+    li.pet= name
+
+ul 
+    +pet('猫')
+    +pet('狗')
+    +pet('猪')
+
+
+h1 Mixin Blocks
+p mixin还可以使用一块Pug作为内容
+mixin article(title)
+    .article
+        .article-wrapper
+            h1= title
+            if block
+                block
+            else
+                p 没有提供内容
+
++article('你好啊 哈哈哈')
+
++article('又一次问好哦')
+    p 这就是我
+    p 令人惊讶的文章
+
+
+h1 Mixin Attributes 
+p mixin还获得一个隐式属性参数，该参数取自传递给mixin的属性
+p 默认情况下，attributes 中的值已经转义!你应该使用!=避免第二次逃脱。
+p 也可以在 mixin 中使用  &attributes
+mixin link(href, name)
+    //- artibutes == { class: "btn" }
+    a(class!=attributes.class href=href)= name
+
++link('/about', 'about')(class="btn")
+
+mixin link2(href, name)
+    a(href=href)&attributes(attributes)= name
+
++link2('/about2', 'about2')(class="btn")
+
+
+h1 Default Argument’s Values 
+p 还可以为 arguments 设置默认值。与在ES6中设置默认函数参数相同。
+mixin article(title='默认标题')
+    .article
+        .article-wrapper
+            h1= title
+
++article()
++article('一起来学习node.js')
+
+h1 Rest Arguments
+p 未知数量的参数，可以使用 rest arguments 语法
+mixin list(id, ...items)
+    ul(id=id)
+        each item in items 
+            li= item 
++list('my-list', 1, 2, 3, 4)

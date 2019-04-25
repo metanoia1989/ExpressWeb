@@ -1,2 +1,75 @@
 doctype html
 title PlainText
+
+p Pug提供了四种获取纯文本的方法，即任何代码或文本内容(大部分未经处理)都应该直接进入呈现的HTML。它们在不同的情况下都很有用。
+p  纯文本仍然使用标记和字符串插值，但该行的第一个单词不是Pug标记。 由于纯文本不会被转义，因此您还可以包含文字HTML。
+
+
+h1 Inline in a Tag 内联标签
+p 添加纯文本的最简单方法是内联。行上的第一项是标记本身。标记和一个空格之后的所有内容都是该标记的文本内容。
+p 当纯文本内容很短(或者您不介意行很长)时，这是最有用的。
+p 这是旧的 <em>文本</em> 内容
+
+
+h1 Literal HTML  - HTML 字面量
+p Indenting the body tag here would make no difference.
+p HTML itself isn't whitespace-sensitive.
+
+
+h1 Piped Text
+p  向模板添加纯文本的另一种方法是在行前面加上管道符（|）。 此方法对于将纯文本与内联标记混合非常有用。
+p 
+    | 管道总是在拥有一行的开始
+    | 不继续进行缩进
+
+
+h1 Block in a Tag
+p 块标签，当标签内容文本很巨大时，可以添加 . 到标签右侧，如果标记具有属性，则在右括号之后。
+p 还可以在父标记中的其他标记之后创建一个纯文本点块。
+script.
+    let usingPug = false
+    if (usingPug)
+        console.log('你是令人惊讶的')
+    else 
+        console.log('使用 pug')
+    
+div
+    p 文本属于段落标签
+    br
+    .
+        这里的文本属于 div 标签
+
+
+h1 Whitespace Control
+p  Pug删除缩进，以及元素之间的所有空格。
+p  Pug 保留元素内的空白，包含以下几种情况
+ul
+    li 一行文本中间的所有空格。
+    li 块缩进之外的前导空格。
+    li 尾部空白
+    li 在纯文本块内或在连续的管道行之间换行。
+
+| You put the em 
+em pha 
+| sis on the wrong syl 
+em la 
+| ble.
+
+a ...这是链接的结束
+| .
+
+
+h1 add space
+p 您可以添加一个或多个空管道线 - 一个带有空格的管道或后面没有任何内容的管道。 这将在呈现的HTML中插入空格。
+| Don't
+|
+button#self-destruct touch
+|
+| me!
+
+p.
+  Using regular tags can help keep your lines short,
+  but interpolated tags may be easier to #[em visualize]
+  whether the tags and text are whitespace-separated.
+
+  
