@@ -1,0 +1,33 @@
+doctype html
+
+title case语句是JavaScript s switch语句的缩写
+
+h1 case 的简单使用
+- let friends = 10
+case friends
+    when 0
+        p 你没有朋友
+    when 1
+        p 你有一个朋友
+    default
+        p 你有 #{friends} 个朋友
+    
+
+h1 case fall through
+p case 不包含 break 语句，必须显示使用 javascript 的 break 语句
+- friends = 0
+case friends
+    when 0
+        - break
+    when 1
+        p 你有非常少的朋友
+    default
+        p 你有 #{friends} 个朋友
+
+h1 Block Expansion 块扩展
+p 感觉这个是简略的语法
+- friends = 1
+case friends
+    when 0: p 你没有朋友
+    when 1: p 你有一个朋友
+    default: p 你有 #{friends} 个朋友

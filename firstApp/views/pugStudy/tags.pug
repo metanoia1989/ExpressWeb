@@ -1,0 +1,25 @@
+doctype html
+title tags 标签
+
+h1 tags
+p(style={ "font-weight": '600' }) 默认情况下，行首(或仅在空格之后)的文本表示HTML标记。缩进标签是嵌套的，创建HTML的树结构。
+
+ul
+    li 第一项
+    li 第二项
+    li 第三项
+
+p Pug还知道哪些元素是自关闭的
+img(src="/images/index.jpg")
+
+h1 Block Expansion 
+p 为了节省空间，Pug为嵌套标记提供了内联语法。
+a(href="https://www.google.com"): p 打开google把 
+
+h1 Self-Closing Tags
+p 诸如img、meta和link之类的标签会自动关闭
+p 您还可以通过附加/字符显式自我关闭标签
+p 您正在使用HTML5 doctype，它不要求标签是自关闭的。
+p 那自闭和没啥乱用了
+foo
+foo(baz='baz')

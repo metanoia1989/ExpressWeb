@@ -1,0 +1,17 @@
+doctype html
+
+title includes 包含
+
+p(style={ "font-weight": '600' }) include允许将一个Pug文件的内容插入到另一个Pug文件中
+
+h1 pug 模板导入测试
+p 查看 #[a(href='http://localhost:3000/ext/includes') http://localhost:3000/ext/includes]
+
+p 如果路径是绝对路径（例如，包括/root.pug），则通过预先添加options.basedir来解决。 否则，相对于正在编译的当前文件解析路径。
+p 如果没有提供文件扩展名，.pug将自动附加到文件名中。
+
+h1 Including Plain Text
+p 包含非pug文件只是包含它们的原始文本。
+
+h1 Including Filtered Text  
+p 您可以将过滤器与include组合在一起，允许您在包含内容时对内容进行过滤。

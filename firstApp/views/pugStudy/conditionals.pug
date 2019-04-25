@@ -1,0 +1,31 @@
+doctype html
+
+title Conditionals 条件语法
+
+html(lang="en")
+
+h1 Pug的第一类条件语法允许使用可选括号。
+- let user = { description: '简直漂亮死了' }
+- let authorised = false
+//- - user = {}
+//- - authorised = true
+div#user
+    if user.description
+        h2.green 描述
+        p.description= user.description
+    else if authorised
+        h2.blue 描述
+        p.description.
+            用户没有描述，
+            为什么不添加一个呢...
+    else
+        h2.red 描述
+        p.description 用户没有描述
+
+
+h1 Pug还提供了条件unless，其工作原理类似于一个否定的if。
+- user.name = 'Adam Smith'
+unless user.isAnonymous
+    p 你已经登录了，作为用户 #{user.name}
+if !user.isAnonymous
+    p 你已经登录了，作为用户 #{user.name}

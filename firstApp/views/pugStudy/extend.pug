@@ -1,0 +1,27 @@
+doctype html
+
+title Template Inheritance 模板继承
+
+p Pug支持模板继承。模板继承工作通过 block 和 extend 关键字。
+p 在模板中，block 只是Pug的一个块，子模板可以替换它。这个过程是递归的。
+p Pug块可以提供默认内容，默认内容完全是可选的。
+
+p 查看 #[a(href='http://localhost:3000/ext/extends') http://localhost:3000/ext/extends]
+
+h1 Block append / prepend 
+p pug 允许   replace (default), prepend 前置, or append 后置 blocks.
+p 当使用block append或block prepend时，单词block是可选的
+
+
+h1 模板继承使用注意
+p. 
+    只有命名块和mixin定义可以出现在子模板的顶部（未缩进）级别。 
+    这个很重要！ 父模板定义页面的整体结构，子模板只能附加，前置或替换特定的标记和逻辑块。 
+    如果子模板试图在块之外添加内容，Pug将无法知道将其放在最终页面中的位置。
+
+p 这包括无缓冲的代码，也可以包含标记。 如果需要定义要在子模板中使用的变量，可以采用以下几种方式：
+p 将变量添加到Pug选项对象，或在父模板中的无缓冲代码中定义它们。 子模板将继承这些变量。
+p 在子模板中的块中定义变量。 扩展模板必须至少有一个块，否则它将为空 - 只需在那里定义变量即可。
+p. 
+   出于同样的原因，Pug的缓冲注释不能出现在扩展模板的顶层：它们产生HTML注释，这些注释无法在生成的HTML中出现。 
+  （然而，无缓冲的Pug评论仍然可以去任何地方。）

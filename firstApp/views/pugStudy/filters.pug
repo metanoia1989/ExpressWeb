@@ -1,0 +1,50 @@
+doctype html
+
+title Filters 过滤器
+
+p(style={ "font-weight": '600' }) 过滤器允许您在Pug模板中使用其他语言。它们接受一个纯文本块作为输入。
+p 要将选项传递给过滤器，请将它们添加到过滤器名称后面的括号中(就像处理标记属性一样) 如 :less(ieCompat=false)。
+p 所有JSTransformer模块都可以用作Pug过滤器。
+p 流行的过滤器包括:babel、:uglify-js、:scss和 :markdown-it。
+p 查看JSTransformer文档，了解特定过滤器支持的选项
+
+h1 markdown 过滤器
+:markdown-it(linkify langPrefix='highlight-')
+    # Markdown
+    Markdown document with http://links.com and
+
+    ```js
+    var codeBlocks;
+    ```
+script
+    :coffee-script
+        console.log 'This is coffee script'
+    
+h1 感受
+p 卧槽，好厉害的过滤器，直接可以渲染其他语言的语法了，太强了，还可以自定义，牛逼
+p. 
+    查看所有的过滤器列表 
+    #[a(href='https://www.npmjs.com/search?q=keywords:jstransformer') JSTransformer modules]
+
+p 安装 markdown 和 coffee script 的过滤器
+- let str1 = '$ npm install --save jstransformer-coffee-script'
+- let str2 = '$ npm install --save jstransformer-markdown-it'
+div 
+    p= str1 
+    p= str2 
+
+
+h1 Inline Syntax 内联语法
+p 如果过滤器的内容很短，甚至可以像使用标签一样使用过滤器
+p
+    :markdown-it(inline) **粗文本**
+p. 
+    在大量的纯文本之间，#[:markdown-it(inline) *markdown*] 使用内联语法
+
+h1 Filtered Includes
+p 还可以使用include语法将过滤器应用于外部文件。
+
+h1 Nested Filters
+p 您可以在同一文本块上应用多个过滤器。为此，只需在同一行指定过滤器。
+p 过滤器按相反的顺序应用。文本首先被传递到最后一个过滤器;
+p 然后，将结果传递给第二个过滤器，以此类推。

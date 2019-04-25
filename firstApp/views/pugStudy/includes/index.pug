@@ -1,0 +1,11 @@
+doctype html
+html
+    include header.pug
+    body
+        h1 include 文件首页
+        p 欢迎来到这里
+        hr
+        h1 下面是过滤器的文本
+        include:markdown-it articles.md
+        hr
+        include footer.pug

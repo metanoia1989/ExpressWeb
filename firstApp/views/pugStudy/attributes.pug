@@ -1,0 +1,102 @@
+doctype html
+
+title HTML属性
+
+
+h1 属性的几种写法
+h2 属性写法类型HTML的属性，可以用空格分割，也可以用 , 分割
+a(href='google.com') Google
+a(class='button' href='google.com') Google 
+a(class='button', href='google.com') Google 
+
+h2 原生javascript表达式设置变量
+- var authenticated = true
+p(class=authenticated ? 'authed' : 'none') 哈哈哈 快看看我的class是什么
+
+
+h1 多行属性
+h2 一个标签有多个属性，还可以用多行来表示
+input(
+    type='checkbox'
+    name='agreement'
+    checked
+)
+
+h2 标签的属性值可以使用多行的模板字符串，以此输入长值
+input(data-json=`
+    {
+        "very-long": "piece of",
+        "data": true
+    }
+`)
+
+
+h1 引用属性
+p 如果您的属性名称包含可能会干扰JavaScript语法的奇怪字符，请使用""或''引用它，或使用逗号分隔不同的属性。
+div(class='div-class', (click)='play()')
+div(class='div-class' '(click)'='play()')
+
+
+h1 属性插值 Interpolation
+- var url = 'index.html'
+a(href='/' + url) 超链接 Link
+
+- url = 'https://www.google.com'
+a(href=url) 又一个超链接 
+
+- let btnType = 'info'
+- let btnSize = 'lg'
+button(type='button' class=`btn btn-${btnType} btn-${btnSize}`) 大家好 这是按钮
+
+
+h1 非转义属性
+p 默认所有属性值都是转义的，特殊字符会被替换转义字符，使用特殊字符时，需要用 "!=" 替换 "="
+div(escaped="<code>") 属性值被转义了
+div(unescaped!="<code>") 属性值未被转义
+
+
+h1 布尔属性 
+p 直接使用布尔值 true false 即可，当属性没有设定值时，默认为true。
+p 在html中是true的话就会被渲染，为false就不会渲染属性。因为html没有布尔值。
+p 如果doctype是html，Pug知道不镜像属性，而是使用简洁风格（所有浏览器都能理解）。
+div(attr) 看看 attr 是多少
+input(type='checkbox' checked)
+input(type='checkbox' checked=true)
+input(type='checkbox' checked=false)
+input(type='checkbox' checked=true.toString())
+input(type='checkbox' checked=true && 'checked')
+
+
+h1 样式属性
+p 与任何普通属性一样，style属性可以是字符串;但它也可以是一个对象，这在JavaScript生成样式时非常方便。
+div(style={ color: 'red', background: 'green' }) 有样式的文字，使用对象样式
+div(style="font-size: 24px; color: 'blue'") 哈哈 大一点的文字，跟普通属性一样的字符串
+
+h1 class 属性
+p class属性可以是字符串，就像任何普通属性一样;但它也可以是一个类名数组，这在从JavaScript生成时非常方便。
+p 它也可以是将类名映射为true或false值的对象。 这对于应用条件类很有用。
+- let classes = ['first', 'second', 'third']
+a(class=classes)
+a.bang(class=classes class=['bing'])
+- let currentUrl = '/about'
+a(class={active: currentUrl === '/'} href='/') 首页
+a(class={active: currentUrl === '/about'} href='/about') 关于我们
+
+h1 class 字面量
+a.button 使用了 class字面量，快去看看class
+.content class 字面量的默认标签是 div
+
+h1 ID 字面量
+a#main-link a 标签 ID字面量
+#content ID 字面量的默认标签也是 div
+
+h1 &attributes 属性并联
+p 作为and属性，&attributes语法可用于将对象分解为元素的属性。
+p 使用对象字面量，或者使用值为对象的变量。
+p 使用&属性应用的属性不会自动转义。
+p 您必须确保对任何用户输入进行清理，以避免跨站点脚本(XSS)。如果从mixin调用中传递属性，这将自动完成。
+
+div#foo(data-bar="foo")&attributes({'data-foo': 'bar'}) 使用对象字面量
+- let attributes = {}
+- attributes.class = 'baz'
+div#hello(data-id='324234')&attributes(attributes) 使用值为对象的变量

@@ -1,0 +1,20 @@
+extends layout.pug
+
+block vars
+    - let otherTitle = '子模板中定义的标题';
+
+block append scripts
+    script(src='/another.js')
+    script(src='/third.js')
+
+block content
+    block top
+        - let title2 = '这是子模板'
+        h1= title2
+        - let pets = ['一只猫', '一只狗']
+        each petName in pets
+            include pet.pug
+    block sidebar
+        p 这是 sidebar
+    block primary
+        p 这是 primay

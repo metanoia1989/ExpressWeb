@@ -1,0 +1,44 @@
+doctype html
+title Iteration 迭代
+
+p(style={ "font-weight": '600' }) 两种方法进行迭代 each while
+
+h1 each
+p Pug 第一类的迭代语法使得在模板中的数组和对象上进行迭代更加容易
+ul 
+    each val in [1, 2, 3, 4, 5]
+        li= val
+p 使用迭代的索引
+ul 
+    each val, index in ['zero', 'one', 'two']
+        li= index + ': ' + val
+    
+p 迭代对象的键值
+    each val, key in { 'first': 'php', 'second': 'javascirpt', 'third': 'golang' }
+        li= key + ': ' + val
+
+p 要迭代的对象或数组只是普通的JavaScript。所以，它可以是一个变量，或者一个函数调用的结果，或者几乎任何其他东西。
+- var values = []
+ul 
+    each val in values.length ? values : ['这里没有值迭代']
+        li= val
+
+p 还可以添加一个else块，如果数组或对象不包含要迭代的值，就会执行这个else块。
+ul 
+    each val in values
+        li= val
+    else
+        li 这里没有值迭代
+
+p 还可以使用 for，for 是 each 的别名
+- var arr = ['blue', 'white', 'green']
+ul 
+    for val in arr
+        li= val
+    
+h1 while
+p 使用 while 创建循环
+- var n = 0
+ul 
+    while n < 4
+        li= n++

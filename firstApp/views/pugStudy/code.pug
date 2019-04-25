@@ -1,0 +1,30 @@
+doctype html
+
+title code 代码容器
+
+p Pug允许您在模板中编写内联JavaScript代码。有三种类型的代码:未缓冲的、缓冲的和未转义的。
+
+h1 Unbuffered Code 未缓冲代码
+p 非缓冲代码以-开头。它不直接向输出添加任何东西。
+- for(let x = 0; x < 3; x++)
+    li item #{x}
+
+p Pug还支持块非缓冲代码
+- let list = ['php', 'javascript', 'golang', 'dartlang', 'list-lang'];
+each item in list
+    li= item
+
+h1 Buffered Code 缓冲代码
+p 缓冲代码以=开始。它计算JavaScript表达式并输出结果。
+p 为了安全起见，缓冲代码首先是HTML转义。
+p
+    = 'This code is <escaped>!'
+p= 'This code is <escaped>!'
+
+h1 Unescaped Buffered Code 未转义的缓冲代码
+p 未转义的缓冲代码以!=开始。它计算JavaScript表达式并输出结果。
+p 未转义的缓冲代码不执行任何转义，因此对用户输入不安全
+p 非转义缓冲代码也可以与属性内联编写，并支持所有JavaScript表达式：
+p 
+    != 'This code is <strong>not</strong> escaped!'
+p!= 'This code is' + '<strong>not</strong> escaped!'

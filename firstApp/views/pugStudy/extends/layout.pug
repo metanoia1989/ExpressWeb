@@ -1,0 +1,23 @@
+
+doctype html
+block vars
+html
+    head
+        title 我的网站 #{title} #{otherTitle}
+        block scripts
+            script(src='/app.js')
+    body
+        block content
+            .top
+                block top
+                    p top nothing
+            .sidebar
+                block sidebar
+                    p sidebar nothing
+            .primary
+                block primary 
+                    p primary nothing
+
+        block footer
+            footer#footer
+                p 页面底部的内容

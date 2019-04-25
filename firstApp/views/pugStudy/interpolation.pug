@@ -1,0 +1,59 @@
+doctype html
+
+title Interpolation 插值
+
+p(style={ "font-weight": '600' }) Pug为各种不同的插值需求提供了运算符。
+
+
+h1 字符串插值 escaped 转义的
+- var str = '#{}'
+p 插入变量使用 #{str} 包裹起来
+p #{str} 里可以放任何有效的Javascript表达式
+p Pug非常聪明，能够计算出表达式的结束位置，因此您甚至可以在不转义的情况下包含}。
+p 如果您需要包含一个逐字的\#{，您可以转义它，或者使用插值。
+
+- var title = "下面是插值效果的演示"
+- var author = "Adam Smith"
+- var theGreat = "<span>escape!</span>"
+- var lang = 'Javascript'
+
+h2= title
+p 写这句话的作者是 #{author}
+p 这个字符串是安全的 #{theGreat}
+p 字符串大写处理 #{lang.toUpperCase()}
+p 没有转义 = 的情况下 #{'}'}!
+p 转义的情况下 \#{interpolation}
+p 使用插值的情况下 #{'#{interpolation}'} too!
+
+
+h1 字符串插值 Unescaped 未转义的
+p 为转义的字符串插值使用 #{'!{}'}
+- var content = "<strong>好吃点，你才多吃点</strong>"
+div.strong
+    p Smith: !{content}
+
+
+h1 tag 插值 - 嵌入标签
+p 实现html的嵌套标签，在html中很容易，抽象化的pug反而会有些问题
+p 嵌入标签使用 #{'#[]'} 符号
+p.
+  This is a very long and boring paragraph that spans multiple lines.
+  Suddenly there is a #[strong strongly worded phrase] that cannot be
+  #[em ignored].
+p.
+  And here's an example of an interpolated tag with an attribute:
+  #[q(lang="es") ¡Hola Mundo!]
+
+
+
+h1 Whitespace Control
+p 标签内插语法对于内联标签特别有用，其中标签前后的空格非常重要。
+p 默认情况下，Pug会删除标记之前和之后的所有空格。
+p
+  | If I don't write the paragraph with tag interpolation, tags like
+  strong strong
+  | and
+  em em
+  | might produce unexpected results.
+p.
+  If I do, whitespace is #[strong respected] and #[em everybody] is happy.
