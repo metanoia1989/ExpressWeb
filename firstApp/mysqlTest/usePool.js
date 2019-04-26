@@ -12,3 +12,5 @@ pool.getConnection((err, conn) => {
     pool.end();
   });
 });
+
+
