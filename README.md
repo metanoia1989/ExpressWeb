@@ -19,11 +19,15 @@ Node, React, TypeScript, MongoDB 这些。
 
 # 有趣的项目参考
 - [express-es6-rest-api](https://github.com/developit/express-es6-rest-api)  ES6语法的Express框架开发的RESTAPI
-
+- [cnodejs/nodeclub](https://github.com/cnodejs/nodeclub) 使用 Node.js 和 MongoDB 开发的社区系统
 
 
 # 有用的技术文章
 - [How to enable ES6 (and beyond) syntax with Node and Express](https://medium.freecodecamp.org/how-to-enable-es6-and-beyond-syntax-with-node-and-express-68d3e11fe1ab) 使用ES6语法来开发 express
+- [ 【全文】狼叔：如何正确的学习Node.js](https://cnodejs.org/topic/5ab3166be7b166bb7b9eccf7) 里面讲node的应用方向，最是我最感兴趣的，其他的看看就好，技术点不是一篇文章能介绍的。
+- [《Node.js 包教不包会》](https://github.com/alsotang/node-lessons)
+- [Koa2进阶学习笔记](https://chenshenhai.github.io/koa2-note/)
+- [Koa.js 设计模式-学习笔记](https://github.com/chenshenhai/koajs-design-note)
 
 ## Route 讲解路由
 - [Express Tutorial Part 4: Routes and controllers](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes) express 路由，官方文档太浅了，火狐文档这里讲解如何抽离控制器，很棒
